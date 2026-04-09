@@ -11,7 +11,7 @@ echo "Step 3: Configuring backend (S3)"
 cat <<EOF > backend.tf
 terraform {
   backend "s3" {
-    bucket = "terraform-bucket-1234
+    bucket = "terraform-bucket-1234"
     key    = "terraform/state.tfstate"
     region = "us-east-1"
     dynamodb_table = "practice-1"
