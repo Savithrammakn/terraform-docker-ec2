@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 echo "Step 1: Initializing Terraform (local state)"
 terraform init
 
@@ -10,7 +12,7 @@ echo "Step 3: Configuring backend (S3)"
 
 rm -f backend.tf
 
-cat <<EOF > backend.tf
+cat <<'EOF' > backend.tf
 terraform {
   backend "s3" {
     bucket = "terraform-bucket-1234"
@@ -21,6 +23,9 @@ terraform {
   }
 }
 EOF
+
+echo "Generated backend.tf:"
+cat backend.tf
 
 echo "Step 4: Migrating state to backend"
 terraform init -migrate-state -force-copy
