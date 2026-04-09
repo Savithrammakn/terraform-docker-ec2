@@ -8,6 +8,8 @@ terraform apply -auto-approve
 
 echo "Step 3: Configuring backend (S3)"
 
+rm -f backend.tf
+
 cat <<EOF > backend.tf
 terraform {
   backend "s3" {
