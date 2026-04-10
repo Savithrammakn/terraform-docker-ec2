@@ -18,7 +18,7 @@ terraform {
     bucket = "terraform-bucket-1234"
     key    = "terraform/state.tfstate"
     region = "us-east-1"
-    dynamodb_table = "practice-1"
+    dynamodb_table = "Test-Key"
     encrypt        = true
   }
 }
